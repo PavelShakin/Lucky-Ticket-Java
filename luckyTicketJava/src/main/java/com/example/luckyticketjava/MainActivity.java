@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         EditText text = findViewById(R.id.editText);
         String input = text.getText().toString();
-        System.out.println(input);
         ImageView bulb = findViewById(R.id.bulb);
         Drawable bulbGreen = getDrawable(getResources()
                 .getIdentifier("@drawable/bulbgreen", null, getPackageName()));
