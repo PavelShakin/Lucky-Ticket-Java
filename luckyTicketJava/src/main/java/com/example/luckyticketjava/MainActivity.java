@@ -1,16 +1,21 @@
 package com.example.luckyticketjava;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
+    private static final int NUMBER_OF_DIGITS = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,24 +23,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("UseCompatLoadingForDrawables")
     public void onClick(View view) {
-        EditText text = findViewById(R.id.editText);
+        EditText text = findViewById(R.id.etTicketNumber);
         String input = text.getText().toString();
-        ImageView bulb = findViewById(R.id.bulb);
+        ImageView bulb = findViewById(R.id.imgBulb);
         Drawable bulbGreen = getDrawable(getResources()
-                .getIdentifier("@drawable/bulbgreen", null, getPackageName()));
+                .getIdentifier("@drawable/ic_bulbgreen", null, getPackageName()));
         Drawable bulbRed = getDrawable(getResources()
-                .getIdentifier("@drawable/bulbred", null, getPackageName()));
+                .getIdentifier("@drawable/ic_bulbred", null, getPackageName()));
 
-        if (input.length() == 6) {
+        if (input.length() == NUMBER_OF_DIGITS) {
             try {
-                int number = Integer.parseInt(input);
-
-                if (number == 0) {
-                    bulb.setImageDrawable(bulbGreen);
-                } else if (number / 1000 % 10 + number / 100000 + number / 10000 % 10
-                        == number % 10 + number % 1000 / 100 + number % 100 / 10) {
+                String[] str = Arrays.copyOfRange(input.split(""),
+                                                  1,
+                                                  input.split("").length);
+                int[] result = Arrays.stream(str).mapToInt(Integer::parseInt).toArray();
+                if (result[0] + result[1] + result[2] == result[3] + result[4] + result[5]) {
                     bulb.setImageDrawable(bulbGreen);
                 } else {
                     bulb.setImageDrawable(bulbRed);
