@@ -47,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             } catch (NumberFormatException ex) {
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "You need to enter only numbers",
+                        "You need to enter only digits",
                         Toast.LENGTH_SHORT);
                 toast.show();
             }
         } else {
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "You mush enter 6 numbers",
+                    "You must enter 6 digits",
                     Toast.LENGTH_SHORT);
             toast.show();
         }
