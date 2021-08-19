@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imgTopImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -20,31 +20,31 @@
         android:background="@color/teal_200"/>
 
     <ImageView
-        android:id="@+id/bulb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imgBulb"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:src="@drawable/bulbgrey"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        android:src="@drawable/ic_bulbgrey"
+        app:layout_constraintBottom_toTopOf="@+id/etTicketNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image" />
+        app:layout_constraintTop_toBottomOf="@+id/imgTopImage" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etTicketNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnCheckNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="@string/hint"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCheckNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
